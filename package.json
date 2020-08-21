@@ -1,0 +1,60 @@
+{
+  "name": "whatz-hot-backend",
+  "version": "1.0.0",
+  "description": "Backend/API for Whatz Hot",
+  "main": "server.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test jest --verbose",
+    "test:watch": "cross-env NODE_ENV=test jest --watch --verbose",
+    "test:ci": "cross-env NODE_ENV=test jest --coverage --verbose && shx cat ./coverage/lcov.info",
+    "test:cover": "cross-env NODE_ENV=test jest --coverage --verbose",
+    "lint": "eslint \"src/**/*.js\"",
+    "lint:fix": "eslint --fix \"src/**/*.js\"",
+    "build": "babel src --out-dir dist --delete-dir-on-start --ignore '**/*.test.js'",
+    "dev": "cross-env DEBUG=log NODE_ENV=development nodemon --exec babel-node ./src/server.js",
+    "start": "cross-env DEBUG=log NODE_ENV=production node ./dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuildForSDGCohort2/whatz-hot-backend.git"
+  },
+  "keywords": [
+    "whatzhot",
+    "reviews",
+    "buildforsdg"
+  ],
+  "author": "BuildForSDG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BuildForSDGCohort2/whatz-hot-backend/issues"
+  },
+  "homepage": "https://github.com/BuildForSDGCohort2/whatz-hot-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.3",
+    "express-validator": "^6.6.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.27",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "babel-jest": "^26.0.1",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "jest": "^26.0.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "supertest": "^4.0.2"
+  }
+}
