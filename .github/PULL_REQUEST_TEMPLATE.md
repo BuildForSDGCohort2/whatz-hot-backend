@@ -1,3 +1,11 @@
+---
+name: Pull Request Template
+about: Pull request template
+title: '[PR] - PR Title'
+labels: back-end
+assignees: ''
+---
+
 ### Before submitting your PR for review
 
 - Run `npm run lint` to find errors in code syntax/format
