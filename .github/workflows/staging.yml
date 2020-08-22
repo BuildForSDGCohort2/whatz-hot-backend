@@ -24,7 +24,6 @@ jobs:
 
       - run: |
           npm ci
-          echo $CODACY_PROJECT_TOKEN
           npm run lint
           npm run test:codacy
 
