@@ -20,10 +20,11 @@ jobs:
         with:
           node-version: 12.x
         env:
-          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN}}
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
 
       - run: |
           npm ci
+          echo $CODACY_PROJECT_TOKEN
           npm run lint
           npm run test:codacy
 
