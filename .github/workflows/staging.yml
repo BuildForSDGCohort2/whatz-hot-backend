@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    # if: ${{ github.event_name == 'push' && github.repository == 'BuildForSDGCohort2/whatz-hot-backend' }}
+    if: ${{ github.event_name == 'push' && github.repository == 'BuildForSDGCohort2/whatz-hot-backend' }}
     name: Run linting and tests 
     runs-on: ubuntu-latest
 
