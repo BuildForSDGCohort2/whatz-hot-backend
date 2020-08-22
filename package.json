@@ -6,7 +6,8 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --verbose",
     "test:watch": "cross-env NODE_ENV=test jest --watch --verbose",
-    "test:ci": "cross-env NODE_ENV=test jest --coverage --verbose && shx cat ./coverage/lcov.info",
+    "test:ci": "cross-env NODE_ENV=test jest --coverage --verbose &&  cat ./coverage/lcov.info | coveralls",
+    "test:codacy": "cross-env NODE_ENV=test jest --coverage --verbose &&  cat ./coverage/lcov.info | codacy-coverage",
     "test:cover": "cross-env NODE_ENV=test jest --coverage --verbose",
     "lint": "eslint \"src/**/*.js\"",
     "lint:fix": "eslint --fix \"src/**/*.js\"",
@@ -49,6 +50,8 @@
     "@babel/node": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
     "babel-jest": "^26.0.1",
+    "codacy-coverage": "^3.4.0",
+    "coveralls": "^3.1.0",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",

@@ -1,0 +1,40 @@
+name: Staging (Development) CI/CD
+
+on:
+  push:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  test:
+    if: ${{ github.event_name == 'push' && github.repository == 'BuildForSDGCohort2/whatz-hot-backend' }}
+    name: Run linting and tests 
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node and Install Packages
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN}}
+
+      - run: |
+          npm ci
+          npm run lint
+          npm run test:codacy
+
+  deploy:
+    if: ${{ github.event_name == 'push' && github.repository == 'BuildForSDGCohort2/whatz-hot-backend' }}
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.4.6
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "whatz-hot"
+          heroku_email: "dave_okanlawon@yahoo.com"
