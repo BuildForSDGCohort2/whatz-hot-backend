@@ -1,6 +1,8 @@
+//create mongoose model for business owners
 const mongoose = require('mongoose');
 
 var BusinessUser = mongoose.model('BusinessUser', {
+    //model for Business owner login/register
     first_name: { type: String },
     last_name: { type: String },
     BusinessCategory: { type: String },
@@ -12,4 +14,5 @@ var BusinessUser = mongoose.model('BusinessUser', {
     username: { type: String },
 });
 
+//export business user
 module.exports = { BusinessUser };

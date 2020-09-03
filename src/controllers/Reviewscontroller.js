@@ -1,8 +1,11 @@
-const express = require ('express');
+//import dependencies
+const express = require('express');
 var router = express.Router();
 
+//import Reviews model
 var {Reviews} = require('../models/Reviews');
 
+//create get request to retrieve users
 router.get('/', (req, res) => {
   Reviews.find ((err, docs) => {
        if (!err) {res.send(docs);}
@@ -10,9 +13,11 @@ router.get('/', (req, res) => {
      })
 });
 
+//create post request to allow users post new reviews
 router.post('/', (req, res) => {
   const today = new Date()
-  var Rev = new Reviews ({
+  var Rev = new Reviews({
+    //get review information from forms
     BusinessName : req.body.BusinessName,
     BusinessLocation: req.body.BusinessLocation,
     BusinessCategory: req.body.BusinessCategory,
@@ -21,12 +26,14 @@ router.post('/', (req, res) => {
     Review: req.body.Review,
     created: today,
   });
+  //save reviews
   Rev.save ((err, doc) => {
     if (!err) {res.send(doc);}
     else {console.log ('Error in saving Review:' + JSON.stringify(err, undefined, 2)); }
   });
 });
 
+//create get request to get single review by id
 router.get('/:id', (req, res) => {
   if (!ObjectId.isValid(req.params.id))
   return res.status(400).send('no record with given id: $(req.params.id)')
@@ -37,6 +44,7 @@ router.get('/:id', (req, res) => {
   });
 });
 
+//create get request to get reviews by business name
 router.get('/1/:BusinessName', (req, res) => {
   Reviews.find({ BusinessName: req.params.BusinessName }, (err, doc) => {
     if (!err) { res.send(doc); }
@@ -44,6 +52,7 @@ router.get('/1/:BusinessName', (req, res) => {
   });
 });
 
+//create get request to get reviews by business location
 router.get('/2/:BusinessLocation', (req, res) => {
   Reviews.find({ BusinessLocation: req.params.BusinessLocation }, (err, doc) => {
     if (!err) { res.send(doc); }
@@ -51,6 +60,7 @@ router.get('/2/:BusinessLocation', (req, res) => {
   });
 });
 
+//create get request to get reviews by business category
 router.get('/3/:BusinessCategory', (req, res) => {
   Reviews.find({ BusinessCategory: req.params.BusinessCategory }, (err, doc) => {
     if (!err) { res.send(doc); }
@@ -58,5 +68,5 @@ router.get('/3/:BusinessCategory', (req, res) => {
   });
 });
 
-
+//export express router
 module.exports = router;

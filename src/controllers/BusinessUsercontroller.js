@@ -1,14 +1,16 @@
+//import dependencies
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
 var users = express.Router();
 
+//import business user model 
 var { BusinesssUser } = require('../models/BusinessUser');
 users.use(cors())
 process.env.SECRET_KEY = 'secret'
 
-
+//create post request for new business owners to register account 
 users.post('/register', (req, res) => {
   const today = new Date()
   const userData = {
@@ -46,6 +48,7 @@ users.post('/register', (req, res) => {
     })
 })
 
+//create post request for already registered business owners to login into their accounts
 users.post('/login', (req, res) => {
   User.findOne({
     email: req.body.email

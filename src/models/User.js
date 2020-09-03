@@ -1,6 +1,8 @@
-const mongoose = require ('mongoose');
+//create mongoose model for registered users
+const mongoose = require('mongoose');
 
-var User = mongoose.model ('User', {
+var User = mongoose.model('User', {
+    //create user model for login/register
     first_name : {type: String},
     last_name : {type: String},
     email : {type: String, required: true},
@@ -9,4 +11,5 @@ var User = mongoose.model ('User', {
     username: { type: String},
 });
 
+//export user
 module.exports = { User };
