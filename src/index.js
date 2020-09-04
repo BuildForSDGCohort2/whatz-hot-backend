@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import CustomError from "./utils/customError";
+import { errorHandler } from "./utils/errorhandler";
 
 // create express app
 const app = express();
@@ -17,8 +19,14 @@ app.get("/", (req, res) => {
 });
 
 // routes not found go here
-app.all("*", (req, res) => {
-  res.status(404).send("Oops! Resource not found");
+app.all("*", (req, res, next) => {
+  const error = new CustomError(404, "Oops! Resource not found");
+  next(error);
+});
+
+// default error handler
+app.use((err, req, res, next) => {
+  errorHandler(err, req, res, next);
 });
 
 export default app;
