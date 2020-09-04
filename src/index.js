@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import CustomError from "./utils/customError";
 import { errorHandler } from "./utils/errorhandler";
+import v1Router from "./v1/routes";
 
 // create express app
 const app = express();
@@ -13,10 +14,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// base routes
+// base route
 app.get("/", (req, res) => {
   res.send("Welcome to Whatz Hot!");
 });
+
+// router for api version 1
+app.use("/v1", v1Router);
 
 // routes not found go here
 app.all("*", (req, res, next) => {
