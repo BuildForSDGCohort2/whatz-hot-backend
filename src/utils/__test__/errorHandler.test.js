@@ -1,18 +1,19 @@
-import errorHandler from "../errorhandler";
-import CustomError from "../customError";
+import errorHandler from "../errors/errorhandler";
+import CustomError from "../errors/customError";
 import express from "express";
 import request from "supertest";
 
 const app = express();
+
 app.get("/statusCodeError", (req, res, next) => {
   const error = new CustomError(400, "Error");
-  return next(error);
+  next(error);
 });
 
 app.get("/statusError", (req, res, next) => {
   const error = new Error("Error");
   error.status = 404;
-  return next(error);
+  next(error);
 });
 
 app.get("/unknownError", (req, res, next) => {
@@ -41,12 +42,12 @@ describe("Unit test errorHandler", () => {
     const response = await request(app).get("/unknownError");
     expect(response.status).toBe(500);
   });
-  it("should return formatted response unknown error occurs", async () => {
+  it("should return formatted response with internal server error in DEV mode", async () => {
     //change ENV temporarily
     process.env.NODE_ENV = "staging";
     const response = await request(app).get("/unknownError");
     expect(response.status).toBe(500);
-    expect(response.body.error).toBe("Internal server error");
+    expect(response.body.message).toBe("Internal server error");
 
     //change ENV back
     process.env.NODE_ENV = "test";

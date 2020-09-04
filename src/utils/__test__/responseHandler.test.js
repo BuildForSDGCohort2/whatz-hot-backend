@@ -1,4 +1,4 @@
-import responseHandler from "../responseHandler";
+import responseHandler from "../responses/responseHandler";
 import express from "express";
 import request from "supertest";
 

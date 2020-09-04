@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import CustomError from "./utils/customError";
-import { errorHandler } from "./utils/errorhandler";
+import CustomError from "./utils/errors/customError";
+import errorHandler from "./utils/errors/errorhandler";
 import v1Router from "./v1/routes";
 
 // create express app
