@@ -1,5 +1,9 @@
 import express from "express";
 import cors from "cors";
+import CustomError from "./utils/errors/customError";
+import errorHandler from "./utils/errors/errorhandler";
+import responseHandler from "./utils/responses/responseHandler";
+import v1Router from "./v1/routes";
 
 // create express app
 const app = express();
@@ -11,14 +15,23 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// base routes
+// base route
 app.get("/", (req, res) => {
-  res.send("Welcome to Whatz Hot!");
+  return responseHandler(res, 200, "Welcome to WhatzHot! Backend API");
 });
 
+// router for api version 1
+app.use("/v1", v1Router);
+
 // routes not found go here
-app.all("*", (req, res) => {
-  res.status(404).send("Oops! Resource not found");
+app.all("*", (req, res, next) => {
+  const error = new CustomError(404, "Oops! Resource not found");
+  next(error);
+});
+
+// default error handler
+app.use((err, req, res, next) => {
+  errorHandler(err, req, res, next);
 });
 
 export default app;
