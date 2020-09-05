@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import CustomError from "./utils/errors/customError";
 import errorHandler from "./utils/errors/errorhandler";
+import responseHandler from "./utils/responses/responseHandler";
 import v1Router from "./v1/routes";
 
 // create express app
@@ -16,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // base route
 app.get("/", (req, res) => {
-  res.send("Welcome to Whatz Hot!");
+  return responseHandler(res, 200, "Welcome to WhatzHot! Backend API");
 });
 
 // router for api version 1

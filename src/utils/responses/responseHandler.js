@@ -1,4 +1,4 @@
-module.exports = (res, status, data, message) => {
+module.exports = (res, status, message = "", data = []) => {
   res.status(status).json({
     data,
     status: "success",
