@@ -22,7 +22,7 @@ jobs:
 
       - name: Run Linting and Tests
         env:
-          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          CODACY_PROJECT_TOKEN: d2f774a27687488785c1f4cb263eebdf
         run: |
           npm ci
           npm run lint
