@@ -1,5 +1,5 @@
 # whatz-hot-backend
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/dba34d981a32416f9241025b21b3ce3f)](https://www.codacy.com/gh/BuildForSDGCohort2/whatz-hot-backend?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BuildForSDGCohort2/whatz-hot-backend&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/dba34d981a32416f9241025b21b3ce3f)](https://www.codacy.com/gh/BuildForSDGCohort2/whatz-hot-backend?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BuildForSDGCohort2/whatz-hot-backend&amp;utm_campaign=Badge_Grade)  [![Build Status](https://travis-ci.org/BuildForSDGCohort2/whatz-hot-backend.svg?branch=develop)](https://travis-ci.org/BuildForSDGCohort2/whatz-hot-backend)  [![Coverage Status](https://coveralls.io/repos/github/BuildForSDGCohort2/whatz-hot-backend/badge.svg?branch=develop)](https://coveralls.io/github/BuildForSDGCohort2/whatz-hot-backend?branch=develop)  ![Staging (Development) CI/CD](https://github.com/BuildForSDGCohort2/whatz-hot-backend/workflows/Staging%20(Development)%20CI/CD/badge.svg)
 
 Welcome to the Whatz Hot! backend repo. More details coming soon! Meanwhile you can read our contribution guide [here](contributing.md)
