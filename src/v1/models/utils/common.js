@@ -31,3 +31,28 @@ export const imagesSchema = {
     },
   ],
 };
+
+export const timeSchema = {
+  hour: {
+    type: Number,
+    default: 0,
+    min: 0,
+    max: 23,
+  },
+  minute: {
+    type: Number,
+    default: 0,
+    min: 0,
+    max: 59,
+  },
+};
+
+export const daysArray = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+];
