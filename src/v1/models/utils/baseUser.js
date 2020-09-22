@@ -37,5 +37,5 @@ BaseUserSchema.plugin(mongooseDelete, {
 // add soft delete capabilities
 BaseUserSchema.plugin(mongoosePaginate);
 
-const BaseUser = mongoose.model("BaseUsers", BaseUserSchema);
+const BaseUser = mongoose.model("BaseUser", BaseUserSchema);
 export default BaseUser;

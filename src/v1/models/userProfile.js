@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 const userProfileSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
-    ref: "Users",
+    ref: "User",
     required: true,
   },
   firstName: {

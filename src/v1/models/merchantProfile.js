@@ -7,8 +7,9 @@ const Schema = mongoose.Schema;
 const merchantProfileSchema = new Schema({
   merchantId: {
     type: Schema.Types.ObjectId,
-    ref: "Merchants",
+    ref: "Merchant",
     required: true,
+    unique: true,
   },
   firstName: {
     type: String,

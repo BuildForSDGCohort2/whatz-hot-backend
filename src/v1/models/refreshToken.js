@@ -6,7 +6,6 @@ const RefreshTokenSchema = new Schema(
     userId: {
       type: Schema.Types.ObjectId,
       required: true,
-      unique: true,
     },
     token: {
       type: String,
@@ -27,5 +26,5 @@ const RefreshTokenSchema = new Schema(
   }
 );
 
-const RefreshToken = mongoose.model("RefreshTokens", RefreshTokenSchema);
+const RefreshToken = mongoose.model("RefreshToken", RefreshTokenSchema);
 export default RefreshToken;

@@ -9,12 +9,12 @@ const ReviewSchema = new Schema(
   {
     businessId: {
       type: Schema.Types.ObjectId,
-      ref: "Businesses",
+      ref: "Business",
       required: true,
     },
     userId: {
       type: Schema.Types.ObjectId,
-      ref: "Users",
+      ref: "User",
       required: true,
     },
     rating: {
@@ -58,5 +58,5 @@ const ReviewSchema = new Schema(
 
 ReviewSchema.plugin(mongoosePaginate);
 
-const Review = mongoose.model("Reviews", ReviewSchema);
+const Review = mongoose.model("Review", ReviewSchema);
 export default Review;

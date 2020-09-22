@@ -7,8 +7,9 @@ const Schema = mongoose.Schema;
 const adminProfileSchema = new Schema({
   adminId: {
     type: Schema.Types.ObjectId,
-    ref: "Admins",
+    ref: "Admin",
     required: true,
+    unique: true,
   },
   firstName: {
     type: String,
