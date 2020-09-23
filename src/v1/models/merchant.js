@@ -7,7 +7,6 @@ const MerchantSchema = extendSchema(BaseUser, {
   merchantProfileId: {
     type: Schema.Types.ObjectId,
     ref: "MerchantProfile",
-    required: true,
     unique: true,
   },
 });
