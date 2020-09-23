@@ -7,7 +7,6 @@ const AdminSchema = extendSchema(BaseUser, {
   adminProfileId: {
     type: Schema.Types.ObjectId,
     ref: "adminProfile",
-    required: true,
     unique: true,
   },
 });

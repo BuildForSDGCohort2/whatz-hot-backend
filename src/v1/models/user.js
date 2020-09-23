@@ -7,7 +7,7 @@ const UserSchema = extendSchema(BaseUser, {
   userProfileId: {
     type: Schema.Types.ObjectId,
     ref: "UserProfile",
-    required: true,
+    unique: true,
   },
 });
 
